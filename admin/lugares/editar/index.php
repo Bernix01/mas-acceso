@@ -57,6 +57,10 @@ if (isset($_GET["e_id"])) {
                             <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $obj->getNombre(); ?>" placeholder="Nombre">
                         </div>
                         <div class="form-group">
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" value="<?php echo $obj->getCiudad(); ?>" placeholder="Ciudad">
+                        </div>
+                        <div class="form-group">
                             <label for="descr">Descripción</label>
                             <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"><?php echo $obj->getDescripcion(); ?></textarea>
                         </div>
@@ -79,6 +83,7 @@ if (isset($_GET["e_id"])) {
     $obj->setId($_POST["id"]);
     $obj->setNombre($_POST["nombre"]);
     $obj->setDescripcion($_POST["descr"]);
+    $obj->setCiudad($_POST["ciudad"]);
     if ($coll->updateEdificio($obj)) {
         //var_dump($obj);
         header("Location: /admin/lugares/");

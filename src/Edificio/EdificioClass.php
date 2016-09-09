@@ -16,6 +16,7 @@ class EdificioClass
     private $e_nombre;
     private $e_descripcion;
     private $e_id_reporte;
+    private $e_ciudad;
     private $e_id_categoria;
 
     public function __construct()
@@ -40,6 +41,16 @@ class EdificioClass
     public function getNombre(): string
     {
         return $this->e_nombre;
+    }
+
+    public function getCiudad()
+    {
+      return $this->e_ciudad;
+    }
+
+    public function setCiudad($c)
+    {
+      $this->e_ciudad = $c;
     }
 
     /**

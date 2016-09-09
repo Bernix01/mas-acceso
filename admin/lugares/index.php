@@ -53,7 +53,7 @@ $cr = new ReporteCollector();
                         $col = new EdificioCollector();
                     ?>
                     <div class="col-lg-6">
-                        <h2>Lugares</h2>
+                        <h2>Lugares <a href="/admin/lugares/agregar/" class="btn btn-default">agregar</a></h2>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -72,10 +72,14 @@ $cr = new ReporteCollector();
                                         <td><?php echo $e->getId(); ?></td>
                                         <td><?php echo $e->getNombre(); ?></td>
                                         <td><?php echo $e->getDescripcion(); ?></td>
-                                        <td><?php $c = $e->getReporte($cr);
+                                        <td><?php echo "string";
+                                        $c = $e->getReporte($cr);
                                         echo $c ? $c->getCalificacion() :"" ;?></td>
                                         <td><?php $r = $e->getCategoria($cc);
                                         echo $r ? $r->getNombre(): "" ;?></td>
+                                        <td>
+                                          <?php echo $e->getCiudad(); ?>
+                                        </td>
                                         <td>
                                             <a href="/admin/lugares/editar/?e_id=<?php echo $e->getId(); ?>">editar</a>
                                             <a href="/admin/lugares/evaluar/?e_id=<?php echo $e->getId(); ?>">evaluar</a>

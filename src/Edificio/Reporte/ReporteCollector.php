@@ -36,7 +36,8 @@ class ReporteCollector extends Collector
    */
     public function getReporte($id)
     {
-        return parent::getById($id, 'reporte', 'r_id', ReporteClass::class);
+
+        return self::getById($id, 'reporte', 'r_id', ReporteClass::class);
     }
 
     public function getReporteDetallado($id)

@@ -41,14 +41,14 @@ class EdificioCollector extends Collector
      */
     public function addEdificio($e)
     {
-        return self::execQuery("INSERT INTO edificio VALUES(DEFAULT,'".$e->getNombre()."','".$e->getDescripcion()."',".$e->getReporteID().",".$e->getCategoriaID().")");
+        return self::execQuery("INSERT INTO edificio VALUES(DEFAULT,'".$e->getNombre()."','".$e->getDescripcion().$this->getReportestr($e).$this->getCategoriastr($e)."','".$e->getCiudad().")");
     }
 
 
     public function updateEdificio($e)
     {
         try {
-            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion().$this->getReporte($e)." WHERE e_id=".$e->getId());
+            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion().$this->getReporte($e).$this->getCategoriastr($e)."','".$e->getCiudad()." WHERE e_id=".$e->getId());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -56,9 +56,13 @@ class EdificioCollector extends Collector
         }
     }
 
-    private function getReporte($e)
+    private function getReportestr($e)
     {
         return $e->getReporteID() != null ? "', e_id_reporte=".$e->getReporteID():'';
+    }
+    private function getCategoriastr($e)
+    {
+        return $e->getCategoria() != null ? "', e_id_categoria=".$e->getReporteID():'';
     }
     public function deleteEdificio($e_id)
     {

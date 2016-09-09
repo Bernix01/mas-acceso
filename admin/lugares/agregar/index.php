@@ -64,6 +64,11 @@ if (isset($_POST["nombre"])) {
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                       </div>
+
+                      <div class="form-group">
+                          <label for="ciudad">Ciudad</label>
+                          <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad">
+                      </div>
                         <div class="form-group">
                           <label for="descr">Descripción</label>
                           <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"></textarea>
